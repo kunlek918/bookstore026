@@ -21,6 +21,8 @@
                         <th>ราคา</th>
                         <th>หมวดหนังสือ</th>
                         <th>รูปภาพ</th>
+                        <th>แก้ไข</th>
+                        <th>ลบ</th>
                     </tr>
                     @foreach ($books as $book)
                     <tr>
@@ -30,7 +32,18 @@
                         <td>{{ $book->typebooks->name }}</td>
                         <td>
                             <a href="{{ asset('images/'.$book->image)}}"><img src="{{ asset('images/resize/'.$book->image)}}"style="width:50px"></a>
-                        </td>    
+                        </td>   
+
+                        <td>
+                        <a href="{{url('/books/'.$book->id.'/edit') }}">แก้ไข</a>
+                        </td>
+                        <td>
+                        <?= Form::open(array('url' => 'books/' .$book->id,'method'=>'delete','onsubmit' =>'return confirm
+("แน่ใจว่าต้องการลบข้อมูล");')) ?>
+                        <button type="submit" class="btn btn-danger">ลบ</button>
+                        {!! Form::close() !!}
+                        </td>
+
                     </tr>
                     @endforeach
                     </table>
