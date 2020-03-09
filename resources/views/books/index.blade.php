@@ -60,7 +60,7 @@
 @if (session()->has('status'))
 <script>
 
-    swall({
+    swal({
         title: "<?php echo session()->get('status'); ?>",
         text:"",
         timer:2000,
@@ -68,10 +68,6 @@
         showConfirmButton:false
 
     });
-
-
-
-
 
 </script>
 
