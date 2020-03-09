@@ -4,15 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-            
+
             <?= link_to('books/create',$title = 'เพิ่มข้อมูล',['class'=>'btn btn-primary'],$secure = null); ?>
-            
+
             <div class="card mt-3">
-                
+
                 <div class="card-header h3">
                     แสดงข้อมูลหนังสือ จำนวนทั้งหมด {{ $books->total() }} เล่ม
                 </div>
-                
+
                 <div class="card-body">
                     <table class="table table-striped">
                     <tr>
@@ -31,8 +31,8 @@
                         <td>{{ number_format($book->price,2) }}</td>
                         <td>{{ $book->typebooks->name }}</td>
                         <td>
-                            <a href="{{ asset('images/'.$book->image)}}"><img src="{{ asset('images/resize/'.$book->image)}}"style="width:50px"></a>
-                        </td>   
+                            <a href="{{ asset('images/'.$book->image)}}"><img src="{{ asset('images/resize/'.$book->image)}}"style="width:50px" data-lity></a>
+                        </td>
 
                         <td>
                         <a href="{{url('/books/'.$book->id.'/edit') }}">แก้ไข</a>
@@ -55,3 +55,26 @@
     </div>
 </div>
 @endsection
+
+@section('footer')
+@if (session()->has('status'))
+<script>
+
+    swall({
+        title: "<?php echo session()->get('status'); ?>",
+        text:"",
+        timer:2000,
+        type:'success',
+        showConfirmButton:false
+
+    });
+
+
+
+
+
+</script>
+@endif
+@endsection
+
+

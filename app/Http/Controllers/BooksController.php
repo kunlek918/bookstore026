@@ -50,9 +50,13 @@ class BooksController extends Controller
             Image::make(public_path().'/images/'.$filename)->resize(50, 50)->save(public_path(). '/images/resize/'. $filename);
             $book->image = $filename;
         }else{
-            $book->image = 'NoPic.jpg';
+            $book->image = 'nopic.jpg';
         }
         $book->save();
+
+        $request->session()->flash('status','บันทึกข้อมูลเรียบร้อยแล้ว');
+        //กำหนดkeyของ flash data ชื่อว่า status โดยใส่ค่าข้อมูลคำว่า บันทึกข้อมูลเรียบร้อยเเล้ว
+
         return redirect()->action('BooksController@index');
     }
 
@@ -100,7 +104,7 @@ class BooksController extends Controller
         if($request->hasFile('image')){
 
             // delete old file before update
-            if($book->image !=nopic.png){
+            if($book->image !='nopic.png'){
                 File::delete(public_path() . '\\images\\'.$book->image);
                 File::delete(public_path() . '\\images\\resize\\'.$book->image);
 

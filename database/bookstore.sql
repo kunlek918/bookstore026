@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 07 มี.ค. 2020 เมื่อ 10:46 AM
--- เวอร์ชันของเซิร์ฟเวอร์: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Host: localhost:3306
+-- Generation Time: Mar 09, 2020 at 09:03 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `bookstore`
@@ -25,7 +17,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `books`
+-- Table structure for table `books`
 --
 
 CREATE TABLE `books` (
@@ -39,20 +31,23 @@ CREATE TABLE `books` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- dump ตาราง `books`
+-- Dumping data for table `books`
 --
 
 INSERT INTO `books` (`id`, `title`, `price`, `typebooks_id`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'การตูน panda', '100.00', 2, 'NoPic.jpg', '2020-03-03 17:00:00', '2020-03-03 17:00:00'),
 (2, 'สามก๊ก', '1500.00', 1, 'NoPic.jpg', '2020-03-03 17:00:00', '2020-03-03 17:00:00'),
-(3, 'บัญชีเบื่องต้น', '500.00', 4, 'NoPic.jpg', '2020-03-03 17:00:00', '2020-03-03 17:00:00'),
-(4, 'adawoid', '666.00', 1, 'MH9RePQUd0.jpg', '2020-03-04 17:06:01', '2020-03-04 17:06:01'),
-(5, 'dawdaw', '615.00', 2, 'UzVll4URb6.png', '2020-03-04 17:07:19', '2020-03-04 17:07:19');
+(6, 'มะเขือเทศอร่อย', '250.00', 2, 'qkfWVyzK5Y.png', '2020-03-09 07:02:14', '2020-03-09 07:02:23'),
+(7, 'วิทยาการคอม', '600.00', 4, 'KTsC8EktOy.jpeg', '2020-03-09 08:11:50', '2020-03-09 08:11:50'),
+(8, 'นารูโตะ', '250.00', 2, 'FrEdNFvHzT.jpg', '2020-03-09 08:19:40', '2020-03-09 08:19:40'),
+(9, 'อยากกินไก่', '500.00', 2, 'xQqbCTuuva.jpeg', '2020-03-09 08:34:30', '2020-03-09 08:34:30'),
+(10, 'อยากกินโกโก้ปั่น', '40.00', 2, 'FlnVGuXcbX.jpeg', '2020-03-09 08:51:45', '2020-03-09 08:51:45'),
+(11, 'อยากกินหมูกะทะ', '169.00', 2, 'Z2a5fm5nLd.jpg', '2020-03-09 08:53:45', '2020-03-09 08:53:45');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -62,7 +57,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- dump ตาราง `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -74,7 +69,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -86,7 +81,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `typebooks`
+-- Table structure for table `typebooks`
 --
 
 CREATE TABLE `typebooks` (
@@ -97,7 +92,7 @@ CREATE TABLE `typebooks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- dump ตาราง `typebooks`
+-- Dumping data for table `typebooks`
 --
 
 INSERT INTO `typebooks` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -108,7 +103,7 @@ INSERT INTO `typebooks` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -123,7 +118,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- dump ตาราง `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -173,7 +168,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -202,8 +197,3 @@ ALTER TABLE `users`
 --
 ALTER TABLE `books`
   ADD CONSTRAINT `books_typebooks_id_foreign` FOREIGN KEY (`typebooks_id`) REFERENCES `typebooks` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
