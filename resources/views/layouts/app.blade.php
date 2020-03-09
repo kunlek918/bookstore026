@@ -93,6 +93,6 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
-    @yield('footer');<>
+    @yield('footer');
 </body>
 </html>
